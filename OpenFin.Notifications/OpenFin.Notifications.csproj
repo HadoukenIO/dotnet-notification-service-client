@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="nuget.pack.bat" />
+    <None Include="openfin.notifications.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

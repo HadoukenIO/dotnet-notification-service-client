@@ -2,44 +2,44 @@
 <HelpTOC>
 
   <HelpTOCNode Title="Welcome to the [TODO: Add project name]" Url="html/b0b4a3ef-4f2a-49f9-8bdb-01d089429989.htm" />
-  <HelpTOCNode Id="1603d22f-b2b6-48f9-8c45-9d8ae51a7b32" Title="Version History" Url="html/58952e71-e580-4582-b27f-51dc8c9f1c59.htm">
+  <HelpTOCNode Id="485a2fe4-2222-4f6c-99fc-f0f2518602e7" Title="Version History" Url="html/58952e71-e580-4582-b27f-51dc8c9f1c59.htm">
     <HelpTOCNode Title="Version 1.0.0.0" Url="html/0bca3a58-280d-4b7f-a180-bf42bc3c0296.htm" />
   </HelpTOCNode>
-  <HelpTOCNode Id="d1607c39-a430-4923-bb2f-736798cfb574" Title="OpenFin.Notifications" Url="html/0cb2e29f-3ca4-e342-1816-027e0b1ca5ca.htm">
-    <HelpTOCNode Id="bf2b0848-ef40-44e2-bd8e-14ef69c831b2" Title="ButtonOptions Class" Url="html/6a6796f0-1aad-4c71-1d21-b551c172d9cf.htm">
+  <HelpTOCNode Id="c56f1822-1376-4e02-8d4f-7f25e3b7772b" Title="OpenFin.Notifications" Url="html/0cb2e29f-3ca4-e342-1816-027e0b1ca5ca.htm">
+    <HelpTOCNode Id="5c7f98d2-c1fa-430e-81be-9d8eddd91260" Title="ButtonOptions Class" Url="html/6a6796f0-1aad-4c71-1d21-b551c172d9cf.htm">
       <HelpTOCNode Title="ButtonOptions Constructor " Url="html/47daab66-617e-4df9-74fc-98ad61947a94.htm" />
-      <HelpTOCNode Id="e8fb7b8b-819c-448d-ba79-3b18f7dd38fb" Title="ButtonOptions Properties" Url="html/fbc59534-1ece-fb47-6a0d-91de6ef8ebc9.htm">
+      <HelpTOCNode Id="e5df7c3d-382e-4bd3-9d54-50e7fd5fc44e" Title="ButtonOptions Properties" Url="html/fbc59534-1ece-fb47-6a0d-91de6ef8ebc9.htm">
         <HelpTOCNode Title="IconUrl Property " Url="html/faf27af4-ed87-ad33-e060-ea1fd966e083.htm" />
         <HelpTOCNode Title="OnNotificationButtonClick Property " Url="html/b51d68a6-b5c5-ca48-839c-9ceb1d7b06ff.htm" />
         <HelpTOCNode Title="Title Property " Url="html/2079fc6d-7765-3d9b-f4bb-fe2964f99772.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="ButtonOptions Methods" Url="html/ff155ff5-7627-ff37-d606-6f72e88d3c9e.htm" />
-      <HelpTOCNode Id="2b692afe-84e1-4be2-9846-7431c93f0664" Title="ButtonOptions Fields" Url="html/08a148fc-8ef4-ace4-c2b2-3215934adbb9.htm">
+      <HelpTOCNode Id="3ccde2ce-7584-4832-b8ac-5f497cbb0fce" Title="ButtonOptions Fields" Url="html/08a148fc-8ef4-ace4-c2b2-3215934adbb9.htm">
         <HelpTOCNode Title="Type Field" Url="html/dad4315e-f103-fa37-733e-10bde7b319d8.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="942ba64d-2186-4559-9439-2efe2cb50c31" Title="NotificationClient Class" Url="html/56a69bf1-b03f-1438-ee74-f0df82e6543c.htm">
-      <HelpTOCNode Id="3894cfae-6b60-4ed2-bbf6-6cc53fbcdf45" Title="NotificationClient Methods" Url="html/455e5d36-cb77-15ed-7662-aee3d1c99430.htm">
+    <HelpTOCNode Id="f5d06bb7-dc5c-4925-a8cc-a5cd1ffda684" Title="NotificationClient Class" Url="html/56a69bf1-b03f-1438-ee74-f0df82e6543c.htm">
+      <HelpTOCNode Id="4b4978d3-65f8-4aef-9479-57970d402ddc" Title="NotificationClient Methods" Url="html/455e5d36-cb77-15ed-7662-aee3d1c99430.htm">
         <HelpTOCNode Title="ClearAllNotificationsAsync Method " Url="html/d3aebf9a-6843-3d39-cd2d-8dff44e0ab2d.htm" />
         <HelpTOCNode Title="ClearNotificationAsync Method " Url="html/4a8b4e78-60a2-f593-6597-0da15604ffb1.htm" />
         <HelpTOCNode Title="CreateNotificationAsync Method " Url="html/e8259c4e-0b6c-fecf-4ea6-8c890e42c2c0.htm" />
         <HelpTOCNode Title="GetAllAppNotificationsAsync Method " Url="html/4cbed763-1b71-410d-7958-c14069bd107c.htm" />
-        <HelpTOCNode Id="d08398f9-6ebe-498d-a739-a2cf199eaa7d" Title="Initialize Method " Url="html/bdc45208-2a84-81c9-cef3-2ac439c2245f.htm">
+        <HelpTOCNode Id="25f0ccc0-5f95-4b0f-81af-298e2285887e" Title="Initialize Method " Url="html/bdc45208-2a84-81c9-cef3-2ac439c2245f.htm">
           <HelpTOCNode Title="Initialize Method " Url="html/6f5becc2-9a90-1c7b-1f36-8b3121503652.htm" />
           <HelpTOCNode Title="Initialize Method (Uri)" Url="html/4b9cce17-b3e3-27c8-88db-1ef101576de2.htm" />
         </HelpTOCNode>
         <HelpTOCNode Title="ToggleNotificationCenterAsync Method " Url="html/a9c62ce4-0879-4f86-2ffb-26658bdea05b.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="099e7f75-bd9b-485f-9450-a24382e1c07b" Title="NotificationClient Fields" Url="html/2003d006-cb92-2c5c-8d49-383bb029b26e.htm">
+      <HelpTOCNode Id="4cdb8f90-2067-4005-8870-837666eb6f8e" Title="NotificationClient Fields" Url="html/2003d006-cb92-2c5c-8d49-383bb029b26e.htm">
         <HelpTOCNode Title="NotificationActionOccurred Field" Url="html/9f297ba5-6c51-ba1f-a612-2d267d646909.htm" />
         <HelpTOCNode Title="NotificationClosed Field" Url="html/e2358e92-e6c7-1d08-374e-252bd6eb9a19.htm" />
         <HelpTOCNode Title="NotificationCreated Field" Url="html/34584990-a192-ed70-bf3e-2046122530f1.htm" />
         <HelpTOCNode Title="OnInitComplete Field" Url="html/91945d16-3cd0-21ff-f2c4-1ee8bdaa77dd.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="b21a9bc2-8052-4553-8ae4-52609944766d" Title="NotificationEvent Class" Url="html/91dc6e18-0998-bf53-65d4-a016aae774b5.htm">
+    <HelpTOCNode Id="d0e84ed9-24c8-473a-8ad9-99a61cbe1798" Title="NotificationEvent Class" Url="html/91dc6e18-0998-bf53-65d4-a016aae774b5.htm">
       <HelpTOCNode Title="NotificationEvent Constructor " Url="html/25141f3b-1085-acd7-e6ba-b5f1a9da0262.htm" />
-      <HelpTOCNode Id="fe9ecb89-9758-4475-999d-7095382ddfa7" Title="NotificationEvent Properties" Url="html/faa72dab-0b09-e43e-f403-033425083954.htm">
+      <HelpTOCNode Id="0a8a3df3-9fdf-46e2-8afc-d7d17337029d" Title="NotificationEvent Properties" Url="html/faa72dab-0b09-e43e-f403-033425083954.htm">
         <HelpTOCNode Title="ActionTrigger Property " Url="html/df958096-792f-719b-767f-e40496a4eb92.htm" />
         <HelpTOCNode Title="EventType Property " Url="html/81cbaf54-446d-f092-79d9-7c45b0cbdc56.htm" />
         <HelpTOCNode Title="NotificationActionResult Property " Url="html/43024390-06d7-1f0a-f066-b0dacd00b30e.htm" />
@@ -48,9 +48,9 @@
       </HelpTOCNode>
       <HelpTOCNode Title="NotificationEvent Methods" Url="html/4e9dd638-7e19-be2e-e9e5-3e17a7345b01.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="c0c90274-4c04-4a1d-afae-337686dd6e4e" Title="NotificationOptions Class" Url="html/91d0e03f-72b6-cb90-110a-2f474696a9f7.htm">
+    <HelpTOCNode Id="ba46a37a-0d6e-463f-a520-e22da86c4773" Title="NotificationOptions Class" Url="html/91d0e03f-72b6-cb90-110a-2f474696a9f7.htm">
       <HelpTOCNode Title="NotificationOptions Constructor " Url="html/2ff0dc32-6af2-42bf-f16c-ca9640833099.htm" />
-      <HelpTOCNode Id="736798dd-0e07-42a0-8101-8b462469c4a6" Title="NotificationOptions Properties" Url="html/eaa77a32-cf3c-c0a4-e857-9aded4803162.htm">
+      <HelpTOCNode Id="ebec9a57-85cf-449e-ab98-72ea2db055b1" Title="NotificationOptions Properties" Url="html/eaa77a32-cf3c-c0a4-e857-9aded4803162.htm">
         <HelpTOCNode Title="Body Property " Url="html/8a8ec910-6ad6-6e3f-74b7-f9b02af4b7ca.htm" />
         <HelpTOCNode Title="Buttons Property " Url="html/19f78d12-3827-73a9-3128-9861f3ac0383.htm" />
         <HelpTOCNode Title="Category Property " Url="html/2d368459-e527-2a04-776b-12659bc6df55.htm" />
@@ -66,9 +66,9 @@
       <HelpTOCNode Title="NotificationOptions Methods" Url="html/e19eb74b-0484-8875-b8eb-816760abb217.htm" />
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="419f28d8-b2ff-42c7-8082-3a2815e746ae" Title="OpenFin.Notifications.Constants" Url="html/11631212-11f3-bf71-eba5-d4dffe23e15a.htm">
-    <HelpTOCNode Id="28273e17-3db8-4ce9-9085-1fe91a5f9896" Title="ActionTriggers Class" Url="html/3ea2cac1-d42b-de6b-5063-896fab2a045e.htm">
-      <HelpTOCNode Id="3004f9c6-9a66-4cd1-9e63-eea0ac8801b2" Title="ActionTriggers Fields" Url="html/c3a814da-95c8-723b-8c4d-bfdc3270044a.htm">
+  <HelpTOCNode Id="70718cbc-a32e-4bd8-9375-456136b7b7e8" Title="OpenFin.Notifications.Constants" Url="html/11631212-11f3-bf71-eba5-d4dffe23e15a.htm">
+    <HelpTOCNode Id="f2ad2f8f-448b-44e5-be1d-9124956d4fb8" Title="ActionTriggers Class" Url="html/3ea2cac1-d42b-de6b-5063-896fab2a045e.htm">
+      <HelpTOCNode Id="ac728096-d71b-4c81-9afe-84dcf62d9f3c" Title="ActionTriggers Fields" Url="html/c3a814da-95c8-723b-8c4d-bfdc3270044a.htm">
         <HelpTOCNode Title="Close Field" Url="html/30760b13-ac1c-55e6-a1f4-3a980a0cb847.htm" />
         <HelpTOCNode Title="Control Field" Url="html/8515db70-7141-e910-2ca9-3614e62ad6b3.htm" />
         <HelpTOCNode Title="Expire Field" Url="html/9450de8c-6358-6106-816a-748d95174ba5.htm" />
