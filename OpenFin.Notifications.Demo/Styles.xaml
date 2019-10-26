@@ -20,15 +20,25 @@
         <Setter Property="Padding" Value="3" />
     </Style>
 
+    <Style TargetType="ListView">
+        <Setter Property="Background" Value="{StaticResource mainBgColor}" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="Background" Value="{StaticResource mainBgColor}" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
     <Style x:Key="textBlockBorder" TargetType="Border">
         <Setter Property="BorderThickness" Value="1px" />
         <Setter Property="BorderBrush" Value="{StaticResource textBlockBorderBrush}" />
     </Style>
 
-    <Style TargetType="TextBlock">
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource mainBgColor}" />
         <Setter Property="MinHeight" Value="140px" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Padding" Value="5px" />
     </Style>
-
 </ResourceDictionary>

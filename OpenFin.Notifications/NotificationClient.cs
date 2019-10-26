@@ -4,39 +4,44 @@ using Openfin.Desktop.Messaging;
 using OpenFin.Notifications.Constants;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace OpenFin.Notifications
 {
-    public class NotificationClient
+    /// <summary>
+    /// The client interface that initializes and manages notifications.
+    /// </summary>
+    public static class NotificationClient
     {
         private static Runtime _runtime;
         private static ChannelClient _channelClient;
 
         /// <summary>
-        /// 
+        /// The action delegate to be called when a notification is closed.
         /// </summary>
         public static Action<NotificationEvent> NotificationClosed;
 
         /// <summary>
-        /// 
+        /// The action delegate to be called when a notification is created.
         /// </summary>
         public static Action<NotificationEvent> NotificationCreated;
 
         /// <summary>
-        /// 
+        /// The action delegate to be called when a notification action occurs.
         /// </summary>
         public static Action<NotificationEvent> NotificationActionOccurred;
 
         /// <summary>
-        /// 
+        /// The action delegate to be called when the service initialization completes. (Required)
         /// </summary>
-        public static Action InitializationComplete;
+        public static Action OnInitComplete;
 
         /// <summary>
-        /// 
+        /// Initializes the Notification Service.
+        /// <event cref="OnInitComplete">The action delegate called when service initialization completes successfully.</event>
+        /// <exception cref="InvalidOperationException">This exception gets thrown if the OnInitComplete
+        /// action delegate does not get set before calling this method.
+        /// </exception>
         /// </summary>
         public static void Initialize()
         {
@@ -44,12 +49,12 @@ namespace OpenFin.Notifications
         }
 
         /// <summary>
-        /// 
+        /// Initializes the Notification Service.
         /// </summary>
-        /// <param name="manifestUri"></param>
+        /// <param name="manifestUri">The uri pointing to the notification service manifest.</param>
         public static void Initialize(Uri manifestUri)
         {
-            if(InitializationComplete == null)
+            if (OnInitComplete == null)
             {
                 throw new InvalidOperationException("InitializationComplete handler must be registered before calling Initialize()");
             }
@@ -92,69 +97,71 @@ namespace OpenFin.Notifications
                                 case NotificationEventTypes.NotificationAction:
                                     NotificationActionOccurred?.Invoke(@event);
                                     break;
+
                                 case NotificationEventTypes.NotificationClosed:
                                     NotificationClosed?.Invoke(@event);
                                     break;
+
                                 case NotificationEventTypes.NotificationCreated:
                                     NotificationCreated?.Invoke(@event);
                                     break;
+
                                 default:
                                     throw new ArgumentException($"Invalid event type : {@event.EventType}");
                             }
                         });
 
-
                         await _channelClient.ConnectAsync();
                         await _channelClient.DispatchAsync(ApiTopics.AddEventListener, NotificationEventTypes.NotificationAction);
-                        InitializationComplete.Invoke();
-
+                        OnInitComplete.Invoke();
                     });
             });
         }
 
         /// <summary>
-        /// 
+        /// Creates a notification.
         /// </summary>
-        /// <param name="notificationId"></param>
-        /// <param name="options"></param>
+        /// <param name="notificationId">The notification Id.</param>
+        /// <param name="options">The notification options.</param>
         /// <returns></returns>
-        public static Task<object> CreateNotificationAsync(string notificationId, NotificationOptions options)
+        public static Task<NotificationOptions> CreateNotificationAsync(string notificationId, NotificationOptions options)
         {
             options.Id = notificationId;
-            return _channelClient?.DispatchAsync<object>(ApiTopics.CreateNotification, options);
-        }
+            return _channelClient?.DispatchAsync<NotificationOptions>(ApiTopics.CreateNotification, options);
+        }        
+
         /// <summary>
-        /// 
+        /// Removes a specific notification from the notification center.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The Id of the notification to be removed.</param>
+        /// <returns>A task</returns>
         public static Task<object> ClearNotificationAsync(string id)
         {
             return _channelClient?.DispatchAsync<object>(ApiTopics.ClearNotification, new { id });
         }
 
         /// <summary>
-        /// 
+        /// Retreives all notifications from the notification center.
         /// </summary>
-        /// <returns></returns>
-        public static Task<NotificationOptions[]> GetAllAppNotifications()
+        /// <returns>The notifications.</returns>
+        public static Task<IEnumerable<NotificationOptions>> GetAllAppNotificationsAsync()
         {
-            return _channelClient?.DispatchAsync<NotificationOptions[]>(ApiTopics.GetAppNotifications, JValue.CreateUndefined());
+            return _channelClient?.DispatchAsync<IEnumerable<NotificationOptions>>(ApiTopics.GetAppNotifications, JValue.CreateUndefined());
         }
 
         /// <summary>
-        /// 
+        /// Removes all notifications from the notification center.
         /// </summary>
-        /// <returns></returns>
-        public static Task<object> ClearAllNotificationsAsync()
+        /// <returns>A task</returns>
+        public static Task ClearAllNotificationsAsync()
         {
-            return _channelClient?.DispatchAsync<object>(ApiTopics.ClearAppNotifications, JValue.CreateUndefined());
+            return _channelClient?.DispatchAsync(ApiTopics.ClearAppNotifications, JValue.CreateUndefined());
         }
 
         /// <summary>
-        /// 
+        /// Toggles the visibility of the notification center.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A task</returns>
         public static Task ToggleNotificationCenterAsync()
         {
             return _channelClient.DispatchAsync(ApiTopics.ToggleNotificationCenter, JValue.CreateUndefined());

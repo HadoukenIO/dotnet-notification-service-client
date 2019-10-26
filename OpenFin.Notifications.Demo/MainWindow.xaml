@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenFin.Notifications.Demo"
         mc:Ignorable="d"
-        Title="WPF Notifications Demo" Height="620" Width="340" Style="{DynamicResource defaultWindowStyle}">
+        Title="WPF Notifications Demo" Height="700" Width="340" Style="{DynamicResource defaultWindowStyle}">
     <Window.Resources>
         <ResourceDictionary Source="Styles.xaml">
         </ResourceDictionary>
@@ -13,18 +13,18 @@
     <StackPanel Margin="25,10,25,0">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
             <Button x:Name="create1" Grid.Row="0" Grid.Column="0" Click="CreateButton_Click">Create Notification 1</Button>
@@ -44,17 +44,39 @@
             <Button x:Name="closeExpiring" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Click="CloseExpiring_Click"  Width="Auto">Clear Expiring Notification</Button>
         </Grid>
         <Grid>
-            
         </Grid>
         <StackPanel Margin="0,10,0,10">
-            <Button Name="fetchButton" Click="FetchButton_Click">Fetch Notifications</Button>
-            <Button Name="clearAllButton" Click="ClearAll_Click">Clear All Notifications</Button>
-            <Button Name="toggleButton" Click="ToggleNotifications_Click">Toggle Notifications</Button>
+            <StackPanel>
+                <Button Name="fetchButton" Click="FetchButton_Click">Fetch Notifications</Button>
+                <Button Name="clearAllButton" Click="ClearAll_Click">Clear All Notifications</Button>
+                <Button Name="toggleButton" Click="ToggleNotifications_Click">Toggle Notifications</Button>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel Margin="0,0,40,0">
+                        <Label Foreground="White">Body Content Type</Label>
+                        <ListView x:Name="bodyContentTypeSelector">
+                            <ListViewItem>Plain Text</ListViewItem>
+                            <ListViewItem>Markdown</ListViewItem>
+                        </ListView>
+                    </StackPanel>
+                    <StackPanel>
+                        <Label Name="lblButtonCount">Button Count (2)</Label>
+                        <Slider ValueChanged="btnCount_ValueChanged" Value="2" x:Name="btnCount" TickPlacement="BottomRight" Maximum="4" Width="100" IsSnapToTickEnabled="True" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
         <Border Style="{DynamicResource textBlockBorder}">
-            
-              <TextBlock x:Name="messageBox" MaxHeight="120" Height="120" MouseDown="messageBox_MouseDown"  ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.CanContentScroll="True"/>
-            
+            <TextBox 
+                IsReadOnly="True" 
+                x:Name="messageBox" 
+                MaxHeight="120" 
+                Height="120"  
+                PreviewMouseDown="messageBox_PreviewMouseDown" 
+                ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                TextWrapping="Wrap" 
+                ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                ScrollViewer.CanContentScroll="True"                
+                />
         </Border>
     </StackPanel>
 </Window>

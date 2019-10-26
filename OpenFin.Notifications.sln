@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFin.Notifications", "Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFin.Notifications.Demo", "OpenFin.Notifications.Demo\OpenFin.Notifications.Demo.csproj", "{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}"
 EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "OpenFin.Notifications.Docs", "OpenFin.Notifications.Docs\OpenFin.Notifications.Docs.shfbproj", "{41C1FB1F-84DC-48E1-9D16-DB0790ECA9D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41C1FB1F-84DC-48E1-9D16-DB0790ECA9D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41C1FB1F-84DC-48E1-9D16-DB0790ECA9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41C1FB1F-84DC-48E1-9D16-DB0790ECA9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41C1FB1F-84DC-48E1-9D16-DB0790ECA9D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

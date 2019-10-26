@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using OpenFin.Notifications.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,16 +15,26 @@ namespace OpenFin.Notifications.Demo
     public partial class MainWindow : Window
     {
         private const string EXPIRING_NOTIFICATION_ID = "wpf/expiringnotification";
-        private const string NOTIFICATION_TITLE       = "WPF Notifications Demo App";
+        private const string NOTIFICATION_TITLE = "WPF Notifications Demo App";
+
         public MainWindow()
         {
             InitializeComponent();
-            
-            NotificationClient.NotificationClosed         += NotificationClient_NotificationClosed;
-            NotificationClient.NotificationCreated        += NotificationClient_NotificationCreated;
+
+            NotificationClient.NotificationClosed += NotificationClient_NotificationClosed;
+            NotificationClient.NotificationCreated += NotificationClient_NotificationCreated;
             NotificationClient.NotificationActionOccurred += NotificationClient_NotificationActionOccurred;
 
-            NotificationClient.InitializationComplete += () => { toggleButtons(true); };
+            NotificationClient.OnInitComplete += () =>
+            {
+                toggleButtons(true);
+
+                Dispatcher.Invoke(() =>
+                {
+                    bodyContentTypeSelector.SelectedIndex = 0;
+                });
+            };
+
             NotificationClient.Initialize();
             toggleButtons(false);
         }
@@ -45,9 +56,16 @@ namespace OpenFin.Notifications.Demo
         }
 
         private void NotificationClient_NotificationActionOccurred(NotificationEvent @event)
-        {
-            
-            log($"Notification action occurred fired. {JsonConvert.SerializeObject(@event.NotificationActionResult)}\n");
+        {            
+            log($"Notification action occurred fired by trigger ({@event.ActionTrigger}). {JsonConvert.SerializeObject(@event.NotificationActionResult)}\n");
+
+            if (@event.ActionTrigger == ActionTriggers.Control)
+            {
+                if (@event.NotificationActionResult.ContainsKey("btn"))
+                {
+                    log($"{@event.NotificationActionResult["btn"]} from NotificationId {@event.NotificationOptions.Id} clicked!");
+                }
+            }
         }
 
         private void NotificationClient_NotificationCreated(NotificationEvent @event)
@@ -58,13 +76,14 @@ namespace OpenFin.Notifications.Demo
         private void NotificationClient_NotificationClosed(NotificationEvent @event)
         {
             log($"Notification {@event.NotificationOptions.Id} closed.\n");
-        }      
+        }
 
         private void log(string text)
         {
             Dispatcher.Invoke(() =>
             {
                 messageBox.Text += text;
+                messageBox.ScrollToEnd();
             });
         }
 
@@ -76,30 +95,15 @@ namespace OpenFin.Notifications.Demo
             {
                 await NotificationClient.CreateNotificationAsync($"wpf/{id}", new NotificationOptions
                 {
-                    Title = NOTIFICATION_TITLE,
-                    Body = $"Notification {id} Body ",
+                    Title = $"{NOTIFICATION_TITLE}-wpf/{id}",
+                    Body = NotificationBodyService.GetNotificationBodyContent((BodyContentType)bodyContentTypeSelector.SelectedIndex),
                     Category = "Category",
                     Icon = "https://openfin.co/favicon-32x32.png",
                     OnNotificationSelect = new Dictionary<string, object>
                     {
                         {"task", "selected" }
                     },
-                    Buttons = new[]
-            {
-                    new ButtonOptions() {
-                        Title = "Button1",
-                        IconUrl = "https://openfin.co/favicon-32x32.png",
-                        OnNotificationButtonClick = new Dictionary<string, object>
-                        {
-                            { "btn", "button1" }
-                        }},
-                    new ButtonOptions() { Title = "Button2",
-                    OnNotificationButtonClick = new Dictionary<string, object>
-                    {
-                        { "btn", "button2" }
-                    }
-                    }
-                }
+                    Buttons = NotificationBodyService.GenerateButtons((int)btnCount.Value)
                 });
             }
             catch (Exception ex)
@@ -111,19 +115,13 @@ namespace OpenFin.Notifications.Demo
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             var id = (sender as FrameworkElement).Name.Substring("close".Length);
-            NotificationClient.ClearNotificationAsync($"wpf/{id}");
-            log("Notifications cleared.");
+            NotificationClient.ClearNotificationAsync($"wpf/{id}");           
         }
 
         private async void FetchButton_Click(object sender, RoutedEventArgs e)
         {
-            var fetchResult = await NotificationClient.GetAllAppNotifications();
+            var fetchResult = await NotificationClient.GetAllAppNotificationsAsync();
             log($"Fetched {fetchResult.Count()} notifications");
-        }
-
-        private void messageBox_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            messageBox.Text = string.Empty;
         }
 
         private void ToggleNotifications_Click(object sender, RoutedEventArgs e)
@@ -140,8 +138,6 @@ namespace OpenFin.Notifications.Demo
         {
             NotificationClient.ClearNotificationAsync(EXPIRING_NOTIFICATION_ID);
         }
-
-
 
         private void CreateExpiring_Click(object sender, RoutedEventArgs e)
         {
@@ -164,6 +160,16 @@ namespace OpenFin.Notifications.Demo
             };
 
             NotificationClient.CreateNotificationAsync(EXPIRING_NOTIFICATION_ID, options);
+        }
+
+        private void btnCount_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            lblButtonCount.Content = $"Button Count ({e.NewValue})";
+        }
+
+        private void messageBox_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            messageBox.Text = string.Empty;
         }
     }
 }

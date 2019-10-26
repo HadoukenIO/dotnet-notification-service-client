@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OpenFin.Notifications.Constants
+﻿namespace OpenFin.Notifications.Constants
 {
-    internal static class ActionTriggers
+    public static class ActionTriggers
     {
-        internal const string Control      = "control";
-        internal const string Select       = "select";
-        internal const string Close        = "close";
-        internal const string Expire       = "expire";
-        internal const string Programmatic = "programmatic";
+        public const string Control      = "control";
+        public const string Select       = "select";
+        public const string Close        = "close";
+        public const string Expire       = "expire";
+        public const string Programmatic = "programmatic";
     }
 }
