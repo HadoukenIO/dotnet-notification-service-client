@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("OpenFin.Notifications")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Notifications Service Client.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("OpenFin, Inc.")]
-[assembly: AssemblyProduct("OpenFin FDC3 Client")]
+[assembly: AssemblyProduct("OpenFin Notifications Service Client")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

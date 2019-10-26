@@ -21,6 +21,8 @@ namespace OpenFin.Notifications.Demo
         {
             InitializeComponent();
 
+            AppDomain.CurrentDomain.UnhandledException += (s, e) => { MessageBox.Show(e.ExceptionObject.ToString()); };            
+
             NotificationClient.NotificationClosed += NotificationClient_NotificationClosed;
             NotificationClient.NotificationCreated += NotificationClient_NotificationCreated;
             NotificationClient.NotificationActionOccurred += NotificationClient_NotificationActionOccurred;
@@ -143,7 +145,7 @@ namespace OpenFin.Notifications.Demo
         {
             var options = new NotificationOptions
             {
-                Body = "# This notification will expire in _10 seconds_.",
+                Body = "# This notification will expire in **10 seconds**.",
                 Title = NOTIFICATION_TITLE,
                 Category = "Expiring Notification",
                 Buttons = new[]
@@ -152,7 +154,7 @@ namespace OpenFin.Notifications.Demo
                     new ButtonOptions() { Title = "Button2"}
                 },
                 Icon = "https://openfin.co/favicon-32x32.png",
-                Expires = DateTime.Now.AddSeconds(30),
+                Expires = DateTime.Now.AddSeconds(10),
                 OnNotificationExpired = new Dictionary<string, object>
                 {
                     { "foo" , "bar" }
