@@ -18,10 +18,8 @@ namespace OpenFin.Notifications.Demo
             {
                 case BodyContentType.PlainText:
                     return getBodyContentByExtension("txt");
-
                 case BodyContentType.Markdown:
                     return getBodyContentByExtension("md");
-
                 default:
                     throw new ArgumentException("unknown content type");
             }
