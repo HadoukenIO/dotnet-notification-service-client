@@ -60,6 +60,7 @@
     <Compile Include="Constants\NotificationEventTypes.cs" />
     <Compile Include="Constants\ServiceConstants.cs" />
     <Compile Include="ButtonOptions.cs" />
+    <Compile Include="DateTimeConverter.cs" />
     <Compile Include="NotificationClient.cs" />
     <Compile Include="Constants\Topics.cs" />
     <Compile Include="NotificationEvent.cs" />

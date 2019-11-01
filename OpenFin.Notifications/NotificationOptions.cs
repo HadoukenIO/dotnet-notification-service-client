@@ -63,6 +63,7 @@ namespace OpenFin.Notifications
         /// The Timestanp displayed in the notification (default is the current date/time)
         /// </summary>
         [JsonProperty("date")]
+        [JsonConverter(typeof(DateTimeConverter))]
         public DateTime Date { get; set; } = DateTime.Now;
 
         /// <summary>
@@ -75,6 +76,7 @@ namespace OpenFin.Notifications
         /// The expiration date and time of the notfication. If not specified, notification will persist until explicity closed.
         /// </summary>
         [JsonProperty("expires")]
+        [JsonConverter(typeof(DateTimeConverter))]
         public DateTime? Expires { get; set; }
     }
 }
