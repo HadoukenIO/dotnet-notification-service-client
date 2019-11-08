@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace OpenFin.Notifications
 {
     /// <summary>
-    /// Configuraton options for constructing a button within a notification.
+    /// Configuration options for constructing a button within a notification.
     /// </summary>
     public sealed class ButtonOptions
     {
@@ -21,7 +21,7 @@ namespace OpenFin.Notifications
         public string Title { get; set; }
 
         /// <summary>
-        /// The url of the icon to be placed to the left of the button text.
+        /// The URL of the icon to be placed to the left of the button text.
         /// </summary>
         [JsonProperty("iconUrl")]
         public string IconUrl { get; set; }

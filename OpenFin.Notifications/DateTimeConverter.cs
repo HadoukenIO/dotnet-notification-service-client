@@ -8,7 +8,7 @@ namespace OpenFin.Notifications
      * 
      * Based on https://github.com/JamesNK/Newtonsoft.Json/blob/master/Src/Newtonsoft.Json/Utilities/DateTimeUtils.cs
      */
-    public class DateTimeConverter : JsonConverter
+    internal class DateTimeConverter : JsonConverter
     {
         internal static readonly long InitialJavaScriptDateTicks = 621355968000000000;
 
