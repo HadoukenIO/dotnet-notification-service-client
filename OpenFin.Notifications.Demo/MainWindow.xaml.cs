@@ -114,7 +114,7 @@ namespace OpenFin.Notifications.Demo
             }
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void  CloseButton_Click(object sender, RoutedEventArgs e)
         {
             var id = (sender as FrameworkElement).Name.Substring("close".Length);
             NotificationClient.ClearNotificationAsync($"wpf/{id}");           

@@ -10,6 +10,12 @@ namespace OpenFin.Notifications.Demo
         Markdown
     }
 
+    internal static class FileExtensions
+    {
+        internal const string TextFile = "txt";
+        internal const string Markdown = "md";
+    }
+
     internal static class NotificationBodyService
     {
         public static string GetNotificationBodyContent(BodyContentType contentType)
@@ -17,10 +23,10 @@ namespace OpenFin.Notifications.Demo
             switch (contentType)
             {
                 case BodyContentType.PlainText:
-                    return getBodyContentByExtension("txt");
+                    return getBodyContentByExtension(FileExtensions.TextFile);
                 case BodyContentType.Markdown:
-                    return getBodyContentByExtension("md");
-                default:
+                    return getBodyContentByExtension(FileExtensions.Markdown);
+                default:                    
                     throw new ArgumentException("unknown content type");
             }
         }

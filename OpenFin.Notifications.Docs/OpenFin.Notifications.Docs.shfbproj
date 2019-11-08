@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>41c1fb1f-84dc-48e1-9d16-db0790eca9d2</ProjectGuid>
+    <ProjectGuid>14a354bb-53da-4262-a055-ab7989207b64</ProjectGuid>
     <SHFBSchemaVersion>2017.9.26.0</SHFBSchemaVersion>
     <!-- AssemblyName, Name, and RootNamespace are not used by SHFB but Visual Studio adds them anyway -->
     <AssemblyName>OpenFin.Notifications.Docs</AssemblyName>
@@ -26,8 +26,11 @@
       <Argument Key="logoAlignment" Value="left" xmlns="" />
       <Argument Key="maxVersionParts" Value="" xmlns="" />
     </TransformComponentArguments>
-    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
-    <SyntaxFilters>C#, Visual Basic</SyntaxFilters>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="..\OpenFin.Notifications\OpenFin.Notifications.csproj" xmlns="" />
+    </DocumentationSources>
+    <HelpFileFormat>Website</HelpFileFormat>
+    <SyntaxFilters>C#</SyntaxFilters>
     <PresentationStyle>VS2013</PresentationStyle>
     <CleanIntermediates>True</CleanIntermediates>
     <KeepLogFile>True</KeepLogFile>
@@ -35,9 +38,15 @@
     <IndentHtml>False</IndentHtml>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
-    <DocumentationSources>
-      <DocumentationSource sourceFile="..\OpenFin.Notifications\OpenFin.Notifications.csproj" />
-    </DocumentationSources>
+    <HelpTitle>OpenFin Notifications .NET API</HelpTitle>
+    <HelpFileVersion>1.0.0.0</HelpFileVersion>
+    <NamingMethod>HashedMemberName</NamingMethod>
+    <ContentPlacement>AboveNamespaces</ContentPlacement>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
+    <NamespaceGrouping>False</NamespaceGrouping>
+    <MaximumGroupParts>2</MaximumGroupParts>
+    <Preliminary>False</Preliminary>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
@@ -58,18 +67,10 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Content" />
-    <Folder Include="Content\VersionHistory" />
     <Folder Include="icons" />
-    <Folder Include="media" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\VersionHistory\v1.0.0.0.aml" />
-    <None Include="Content\VersionHistory\VersionHistory.aml" />
-    <None Include="Content\Welcome.aml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ContentLayout Include="ContentLayout.content" />
+    <Content Include="icons\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons\Help.png" />

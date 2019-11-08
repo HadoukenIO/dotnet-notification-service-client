@@ -51,7 +51,7 @@ namespace OpenFin.Notifications
         /// <summary>
         /// Initializes the Notification Service.
         /// </summary>
-        /// <param name="manifestUri">The uri pointing to the notification service manifest.</param>
+        /// <param name="manifestUri">The Uri pointing to the notification service manifest.</param>
         public static void Initialize(Uri manifestUri)
         {
             if (OnInitComplete == null)
@@ -134,14 +134,14 @@ namespace OpenFin.Notifications
         /// Removes a specific notification from the notification center.
         /// </summary>
         /// <param name="id">The Id of the notification to be removed.</param>
-        /// <returns>A task</returns>
-        public static Task<object> ClearNotificationAsync(string id)
+        /// <returns>A value denoting if the action was successful or not.</returns>
+        public static Task<bool> ClearNotificationAsync(string id)
         {
-            return _channelClient?.DispatchAsync<object>(ApiTopics.ClearNotification, new { id });
+            return _channelClient?.DispatchAsync<bool>(ApiTopics.ClearNotification, new { id });
         }
 
         /// <summary>
-        /// Retreives all notifications from the notification center.
+        /// Retrieves all notifications from the notification center.
         /// </summary>
         /// <returns>The notifications.</returns>
         public static Task<IEnumerable<NotificationOptions>> GetAllAppNotificationsAsync()
