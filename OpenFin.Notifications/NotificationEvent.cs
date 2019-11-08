@@ -15,11 +15,6 @@ namespace OpenFin.Notifications
         public NotificationOptions NotificationOptions { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        public string Target { get; set; }
-
-        /// <summary>
         /// The type of notification event.
         /// </summary>
         [JsonProperty("type")]

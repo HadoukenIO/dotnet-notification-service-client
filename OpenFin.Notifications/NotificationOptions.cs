@@ -16,7 +16,7 @@ namespace OpenFin.Notifications
         public string Id { get; set; }
 
         /// <summary>
-        /// The notificaiton body content. Plain text and Markdown (with the exception of links, images, and code blocks) are supported formats.
+        /// The notification body content. Plain text and Markdown (with the exception of links, images, and code blocks) are supported formats.
         /// </summary>
         [JsonProperty("body")]
         public string Body { get; set; }
@@ -28,14 +28,14 @@ namespace OpenFin.Notifications
         public string Title { get; set; }
 
         /// <summary>
-        /// Describes the context of the notification facilitaing the control of different notification types that are raised by an application.
+        /// Describes the context of the notification facilitating the control of different notification types that are raised by an application.
         /// This property is not displayed on the notification itself
         /// </summary>
         [JsonProperty("category")]
         public string Category { get; set; }
 
         /// <summary>
-        /// The url to the icon to be displayed in the notification.
+        /// The URL to the icon to be displayed in the notification.
         /// </summary>
         [JsonProperty("icon")]
         public string Icon { get; set; }
@@ -54,15 +54,16 @@ namespace OpenFin.Notifications
         public Dictionary<string, object> OnNotificationSelect { get; set; }
 
         /// <summary>
-        /// The action result to be returned from the service when
+        /// The action result to be returned from the service when a notification expires.
         /// </summary>
         [JsonProperty("onExpire")]
         public Dictionary<string, object> OnNotificationExpired { get; set; }
 
         /// <summary>
-        /// The Timestanp displayed in the notification (default is the current date/time)
+        /// The Time stamp displayed in the notification (default is the current date/time).
         /// </summary>
         [JsonProperty("date")]
+        [JsonConverter(typeof(DateTimeConverter))]
         public DateTime Date { get; set; } = DateTime.Now;
 
         /// <summary>
@@ -72,9 +73,10 @@ namespace OpenFin.Notifications
         public IEnumerable<ButtonOptions> Buttons { get; set; }
 
         /// <summary>
-        /// The expiration date and time of the notfication. If not specified, notification will persist until explicity closed.
+        /// The expiration date and time of the notification. If not specified, notification will persist until explicitly closed.
         /// </summary>
         [JsonProperty("expires")]
+        [JsonConverter(typeof(DateTimeConverter))]
         public DateTime? Expires { get; set; }
     }
 }
