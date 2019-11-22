@@ -63,15 +63,23 @@ namespace OpenFin.Notifications
             runtimeOptions.Arguments += " --inspect";
 
             var entryAssembly = System.Reflection.Assembly.GetEntryAssembly();
-            var productAttributes = entryAssembly.GetCustomAttributes(typeof(System.Reflection.AssemblyProductAttribute), true);
 
-            if (productAttributes.Length > 0)
+            if (entryAssembly != null)
             {
-                runtimeOptions.UUID = ((System.Reflection.AssemblyProductAttribute)productAttributes[0]).Product;
+                var productAttributes = entryAssembly.GetCustomAttributes(typeof(System.Reflection.AssemblyProductAttribute), true);
+
+                if (productAttributes.Length > 0)
+                {
+                    runtimeOptions.UUID = ((System.Reflection.AssemblyProductAttribute)productAttributes[0]).Product;
+                }
+                else
+                {
+                    runtimeOptions.UUID = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+                }
             }
             else
             {
-                runtimeOptions.UUID = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+                runtimeOptions.UUID = Guid.NewGuid().ToString();
             }
 
             _runtime = Runtime.GetRuntimeInstance(runtimeOptions);
