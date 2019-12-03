@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFin.Notifications.Demo"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7694AFC9-33F2-4A22-971E-9A48F5C10D66}"
 	ProjectSection(SolutionItems) = preProject
-		0.11.2-alpha2.md = 0.11.2-alpha2.md
-		channels = channels
-		versions = versions
+		.gitlab-ci.yml = .gitlab-ci.yml
+		README.md = README.md
+		release-notes.md = release-notes.md
+		OpenFin.Notifications.Demo\ss1.png = OpenFin.Notifications.Demo\ss1.png
+		OpenFin.Notifications.Demo\ss2.png = OpenFin.Notifications.Demo\ss2.png
 	EndProjectSection
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "OpenFin.Notifications.Docs", "OpenFin.Notifications.Docs\OpenFin.Notifications.Docs.shfbproj", "{14A354BB-53DA-4262-A055-AB7989207B64}"

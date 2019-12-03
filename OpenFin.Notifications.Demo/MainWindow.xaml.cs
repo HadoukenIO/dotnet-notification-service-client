@@ -26,6 +26,7 @@ namespace OpenFin.Notifications.Demo
             NotificationClient.NotificationClosed += NotificationClient_NotificationClosed;
             NotificationClient.NotificationCreated += NotificationClient_NotificationCreated;
             NotificationClient.NotificationActionOccurred += NotificationClient_NotificationActionOccurred;
+            toggleButtons(false);
 
             NotificationClient.OnInitComplete += () =>
             {
@@ -38,7 +39,7 @@ namespace OpenFin.Notifications.Demo
             };
 
             NotificationClient.Initialize();
-            toggleButtons(false);
+          
         }
 
         private void toggleButtons(bool isEnabled)
