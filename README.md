@@ -32,7 +32,7 @@ NotificationClient.Initialize();
 
 NotificiationClient action delegates facilitate the handling of various notification related events.
 
-## NotificationActionOccured Delegate
+## NotificationActionOccurred Delegate
 
 The handler for notiifcation actions are invoked when notification buttons and or bodies are clicked or when notifications expire.
 
