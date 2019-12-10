@@ -78,5 +78,10 @@
                 ScrollViewer.CanContentScroll="True"                
                 />
         </Border>
+        <StackPanel Orientation="Horizontal">
+            <Label>Provider Status:</Label>
+            <Label x:Name="connected">Not Connected.</Label>
+            <Label x:Name="version"></Label>
+        </StackPanel>
     </StackPanel>
 </Window>
