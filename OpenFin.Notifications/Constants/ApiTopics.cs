@@ -9,5 +9,6 @@
         internal const string ToggleNotificationCenter = "toggle-notification-center";
         internal const string AddEventListener         = "add-event-listener";
         internal const string RemoveEventListener      = "remove-event-listener";
+        internal const string GetProviderStatus        = "get-provider-status";
     }
 }
