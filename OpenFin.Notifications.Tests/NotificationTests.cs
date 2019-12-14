@@ -175,38 +175,38 @@ namespace OpenFin.Notifications.Tests
             await NotificationClient.CreateNotificationAsync(id, options);
         }
 
-        [TestMethod]
-        public async Task CreateNotification_CreateExpiringNotification_ExpiresSuccessfully()
-        {
-            var are = new AutoResetEvent(false);
+        //[TestMethod]
+        //public async Task CreateNotification_CreateExpiringNotification_ExpiresSuccessfully()
+        //{
+        //    var are = new AutoResetEvent(false);
 
-            string id = Guid.NewGuid().ToString();
+        //    string id = Guid.NewGuid().ToString();
 
-            var options = new NotificationOptions
-            {
-                Title = id,
-                Body = id,
-                Icon = id,
-                Category = id,
-                Expires = DateTime.Now.AddSeconds(10),
-                Buttons = new ButtonOptions[] { }
-            };
+        //    var options = new NotificationOptions
+        //    {
+        //        Title = id,
+        //        Body = id,
+        //        Icon = id,
+        //        Category = id,
+        //        Expires = DateTime.Now.AddSeconds(10),
+        //        Buttons = new ButtonOptions[] { }
+        //    };
 
-            NotificationClient.OnInitComplete += () =>
-            {
-                are.Set();
-            };
+        //    NotificationClient.OnInitComplete += () =>
+        //    {
+        //        are.Set();
+        //    };
 
-            NotificationClient.NotificationClosed += (@event) =>
-            {
-                Assert.AreEqual(id, @event.NotificationOptions.Id);           
-            };            
+        //    NotificationClient.NotificationClosed += (@event) =>
+        //    {
+        //        Assert.AreEqual(id, @event.NotificationOptions.Id);           
+        //    };            
 
-            NotificationClient.Initialize(uri);
-            are.WaitOne();
-            await NotificationClient.CreateNotificationAsync(id, options);
-            are.WaitOne();            
-        }
+        //    NotificationClient.Initialize(uri);
+        //    are.WaitOne();
+        //    await NotificationClient.CreateNotificationAsync(id, options);
+        //    are.WaitOne();            
+        //}
 
         [TestMethod]
         public async Task CreateNotification_CreateExpiringNotificationWithHandler_CallsNotificationActionEventHandler()
