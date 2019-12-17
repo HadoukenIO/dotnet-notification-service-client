@@ -326,8 +326,6 @@ namespace OpenFin.Notifications.Tests
 
             Assert.AreEqual(id, createdNotificationId);
             Assert.AreEqual(id, closedNotificationId);
-
-
         }
     }
 }
