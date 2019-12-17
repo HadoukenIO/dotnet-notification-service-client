@@ -12,6 +12,25 @@ namespace OpenFin.Notifications.Tests
     {
         Uri uri = new Uri("https://cdn.openfin.co/services/openfin/notifications/app.json");
 
+        private void cleanup()
+        {
+            NotificationClient.NotificationActionOccurred = null;
+            NotificationClient.OnInitComplete = null;
+            NotificationClient.NotificationClosed = null;
+            NotificationClient.NotificationCreated = null;
+        }
+        [TestInitialize]
+        public void Init()
+        {
+            cleanup();
+        }
+
+        [TestCleanup]
+        public void Cleanup()
+        {
+            cleanup();
+        }
+
         [TestMethod]
         public void Initialize_NullInitCompleteHandler_ExceptionThrown()
         {
@@ -32,17 +51,20 @@ namespace OpenFin.Notifications.Tests
                 Icon = id,
                 Category = id,
                 Buttons = new ButtonOptions[] { }
-            };           
+            };
 
-            NotificationClient.OnInitComplete += async () =>
+            var createdNotificationId = "";
+
+            NotificationClient.OnInitComplete = async () =>
             {
                 var notification = await NotificationClient.CreateNotificationAsync(id, options);
-                Assert.AreEqual(id, notification.Id);
+                createdNotificationId = notification.Id;
                 are.Set();
             };
 
             NotificationClient.Initialize(uri);
             are.WaitOne();
+            Assert.AreEqual(id, createdNotificationId);
         }
 
         [TestMethod]
@@ -175,38 +197,42 @@ namespace OpenFin.Notifications.Tests
             await NotificationClient.CreateNotificationAsync(id, options);
         }
 
-        //[TestMethod]
-        //public async Task CreateNotification_CreateExpiringNotification_ExpiresSuccessfully()
-        //{
-        //    var are = new AutoResetEvent(false);
+        [Ignore]        
+        public async Task CreateNotification_CreateExpiringNotificationWithoutHandler_ExpiresSuccessfully()
+        {
+            var are = new AutoResetEvent(false);
 
-        //    string id = Guid.NewGuid().ToString();
+            string id = Guid.NewGuid().ToString();
 
-        //    var options = new NotificationOptions
-        //    {
-        //        Title = id,
-        //        Body = id,
-        //        Icon = id,
-        //        Category = id,
-        //        Expires = DateTime.Now.AddSeconds(10),
-        //        Buttons = new ButtonOptions[] { }
-        //    };
+            var options = new NotificationOptions
+            {
+                Title = id,
+                Body = id,
+                Icon = id,
+                Category = id,
+                Expires = DateTime.Now.AddSeconds(10),
+                Buttons = new ButtonOptions[] { }
+            };
 
-        //    NotificationClient.OnInitComplete += () =>
-        //    {
-        //        are.Set();
-        //    };
+            NotificationClient.OnInitComplete = () =>
+            {
+                are.Set();
+            };
 
-        //    NotificationClient.NotificationClosed += (@event) =>
-        //    {
-        //        Assert.AreEqual(id, @event.NotificationOptions.Id);           
-        //    };            
+            var closedNotificationId = string.Empty;
 
-        //    NotificationClient.Initialize(uri);
-        //    are.WaitOne();
-        //    await NotificationClient.CreateNotificationAsync(id, options);
-        //    are.WaitOne();            
-        //}
+            NotificationClient.NotificationClosed = (@event) =>
+            {
+                closedNotificationId = @event.NotificationOptions.Id;
+                are.Set();
+            };           
+
+            NotificationClient.Initialize(uri);
+            are.WaitOne();
+            await NotificationClient.CreateNotificationAsync(id, options);
+            are.WaitOne();
+            Assert.AreEqual(id, closedNotificationId);
+        }
 
         [TestMethod]
         public async Task CreateNotification_CreateExpiringNotificationWithHandler_CallsNotificationActionEventHandler()
@@ -229,16 +255,21 @@ namespace OpenFin.Notifications.Tests
                 }
             };
 
-            NotificationClient.OnInitComplete += () =>
+            NotificationClient.OnInitComplete = () =>
             {
                 are.Set();
             };
 
+            var eventActionTrigger = "";
+            var containsFooKey = false;
+            var fooValue = "";
+
             NotificationClient.NotificationActionOccurred += (@event) =>
             {
-                Assert.AreEqual(ActionTriggers.Expire, @event.ActionTrigger);
-                Assert.IsTrue(@event.NotificationActionResult.ContainsKey("foo"));
-                Assert.AreEqual("bar", @event.NotificationActionResult["foo"]);                
+                eventActionTrigger = @event.ActionTrigger;
+                containsFooKey = @event.NotificationActionResult.ContainsKey("foo");
+                fooValue = @event.NotificationActionResult["foo"].ToString();
+                            
                 are.Set();
             };
 
@@ -246,6 +277,10 @@ namespace OpenFin.Notifications.Tests
             are.WaitOne();
             await NotificationClient.CreateNotificationAsync(id, options);
             are.WaitOne();
+
+            Assert.AreEqual(ActionTriggers.Expire, eventActionTrigger);
+            Assert.IsTrue(containsFooKey);
+            Assert.AreEqual("bar", fooValue);
         }
 
         [TestMethod]
@@ -264,20 +299,23 @@ namespace OpenFin.Notifications.Tests
                 Buttons = new ButtonOptions[] { }                
             };
 
-            NotificationClient.OnInitComplete += () =>
+            NotificationClient.OnInitComplete = () =>
             {
                 are.Set();
             };
 
-            NotificationClient.NotificationClosed += (@event) =>
+            var closedNotificationId = "";
+
+            NotificationClient.NotificationClosed = (@event) =>
             {
-                Assert.AreEqual(id, @event.NotificationOptions.Id);                
+                closedNotificationId = @event.NotificationOptions.Id;
                 are.Set();
             };
 
-            NotificationClient.NotificationCreated += async (@event) =>
+            var createdNotificationId = "";
+            NotificationClient.NotificationCreated = async (@event) =>
             {
-                Assert.AreEqual(id, @event.NotificationOptions.Id);
+                createdNotificationId = @event.NotificationOptions.Id;
                 await NotificationClient.ClearNotificationAsync(id);
             };
 
@@ -285,9 +323,11 @@ namespace OpenFin.Notifications.Tests
             are.WaitOne();
             await NotificationClient.CreateNotificationAsync(id, options);
             are.WaitOne();
+
+            Assert.AreEqual(id, createdNotificationId);
+            Assert.AreEqual(id, closedNotificationId);
+
+
         }
-
-        
-
     }
 }
