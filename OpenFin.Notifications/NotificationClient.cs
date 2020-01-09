@@ -174,5 +174,14 @@ namespace OpenFin.Notifications
         {
             return _channelClient.DispatchAsync(ApiTopics.ToggleNotificationCenter, JValue.CreateUndefined());
         }
+
+        /// <summary>
+        /// Retrieves the connection status and version of the provider the client is connected to.
+        /// </summary>
+        /// <returns></returns>
+        public static Task<ProviderStatus> GetProviderStatusAsync()
+        {
+            return _channelClient.DispatchAsync<ProviderStatus>(ApiTopics.GetProviderStatus, JValue.CreateUndefined());
+        }
     }
 }

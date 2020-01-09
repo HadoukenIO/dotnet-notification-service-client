@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+[assembly: AssemblyKeyName("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
@@ -31,5 +32,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.11.2.1")]
-[assembly: AssemblyFileVersion("0.11.2.1")]
+[assembly: AssemblyVersion("0.11.2.3")]
+[assembly: AssemblyFileVersion("0.11.2.3")]
+[assembly: AssemblyInformationalVersion("0.11.2-alpha3")]
