@@ -38,8 +38,8 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="OpenfinDesktop, Version=10.0.0.0, Culture=neutral, PublicKeyToken=18a277d64dddd680, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenfinDesktop.10.0.0\lib\net452\OpenfinDesktop.dll</HintPath>
+    <Reference Include="OpenFin.Notifications, Version=0.11.2.5, Culture=neutral, PublicKeyToken=18a277d64dddd680, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenFin.Notifications.0.11.2-alpha5\lib\net452\OpenFin.Notifications.dll</HintPath>
     </Reference>
     <Reference Include="SuperSocket.ClientEngine, Version=0.10.0.0, Culture=neutral, PublicKeyToken=ee9af13f57f00acc, processorArchitecture=MSIL">
       <HintPath>..\packages\SuperSocket.ClientEngine.Core.0.10.0\lib\net45\SuperSocket.ClientEngine.dll</HintPath>
@@ -116,12 +116,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OpenFin.Notifications\OpenFin.Notifications.csproj">
-      <Project>{382dd6af-6390-4a0d-94cc-919bc8dedee3}</Project>
-      <Name>OpenFin.Notifications</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="body.txt">

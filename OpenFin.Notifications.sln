@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29403.142
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFin.Notifications", "OpenFin.Notifications\OpenFin.Notifications.csproj", "{382DD6AF-6390-4A0D-94CC-919BC8DEDEE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenFin.Notifications.Demo", "OpenFin.Notifications.Demo\OpenFin.Notifications.Demo.csproj", "{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7694AFC9-33F2-4A22-971E-9A48F5C10D66}"
 	ProjectSection(SolutionItems) = preProject
 		.gitlab-ci.yml = .gitlab-ci.yml
@@ -30,10 +28,6 @@ Global
 		{382DD6AF-6390-4A0D-94CC-919BC8DEDEE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{382DD6AF-6390-4A0D-94CC-919BC8DEDEE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{382DD6AF-6390-4A0D-94CC-919BC8DEDEE3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1EDFCF6B-A6E8-4455-B9D1-A5B1D11390DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{14A354BB-53DA-4262-A055-AB7989207B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14A354BB-53DA-4262-A055-AB7989207B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14A354BB-53DA-4262-A055-AB7989207B64}.Release|Any CPU.ActiveCfg = Release|Any CPU

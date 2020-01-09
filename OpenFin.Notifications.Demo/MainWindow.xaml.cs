@@ -32,18 +32,18 @@ namespace OpenFin.Notifications.Demo
             {
                 toggleButtons(true);
 
-                var status = await NotificationClient.GetProviderStatusAsync();
+                //var status = await NotificationClient.GetProviderStatusAsync();
 
-                Dispatcher.Invoke(() =>
-                {
-                    bodyContentTypeSelector.SelectedIndex = 0;
+                //Dispatcher.Invoke(() =>
+                //{
+                //    bodyContentTypeSelector.SelectedIndex = 0;
 
-                    connected.Content = !status.Connected ? "Failed to connect." : "Connected";
-                    if(status.Connected)
-                    {
-                        version.Content = $"(v.{status.Version})";
-                    }                    
-                });
+                //    connected.Content = !status.Connected ? "Failed to connect." : "Connected";
+                //    if(status.Connected)
+                //    {
+                //        version.Content = $"(v.{status.Version})";
+                //    }                    
+                //});
             };
 
             NotificationClient.Initialize();          
